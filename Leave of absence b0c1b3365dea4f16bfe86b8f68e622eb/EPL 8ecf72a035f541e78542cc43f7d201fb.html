@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>EPL</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8ecf72a0-35f5-41e7-8542-cc43f7d201fb" class="page sans"><header><img class="page-cover-image" src="Skydive%20Elsinore%2080679fddeab9403da9d6d0b1fac7d7cb/5D1BF65E-0F4A-4426-88D9-20DF42D74926.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">✈️</span></div><h1 class="page-title">EPL</h1></header><div class="page-body"><p id="e6a38e81-29f8-41b9-9d11-16ee5ddea6da" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ad593844-51aa-40ff-a24d-d7f419db65e5"><div style="font-size:1.5em"><span class="icon">🐬</span></div><div style="width:100%">트레이닝 세션 2달 &amp; SSI, AIDA Instructor 취득</div></figure><h2 id="f422e479-3953-4135-a6d7-62304f67173c" class=""><details open=""><summary>비용</summary></details></h2><div class="indented"><ul id="c42cc1c1-2df1-477e-bfbe-c62331dacd35" class="bulleted-list"><li style="list-style-type:disc">트레이닝 세션<ul id="771b2b01-30fb-4b42-9ef2-4a30f89b6f68" class="bulleted-list"><li style="list-style-type:circle">1개월 트레이닝 패키지<ul id="df5b042a-1f50-45c9-8783-b3d503a282ec" class="bulleted-list"><li style="list-style-type:square">패키지 비용 : US $1950</li></ul><ul id="3d9ae955-651c-48ba-ab5d-8d6e8b63992b" class="bulleted-list"><li style="list-style-type:square">포함사항 : 1인실 숙소, 식사, 트레이닝 </li></ul></li></ul></li></ul><ul id="4d800b1b-4e17-4fa1-b26e-165d025dce5d" class="bulleted-list"><li style="list-style-type:disc">스페셜티<ul id="5797ff70-1060-40d5-a18b-19bd668bbb04" class="bulleted-list"><li style="list-style-type:circle">모노핀 코스<ul id="2c9b3cc4-3acc-44ca-8261-05b55f429519" class="bulleted-list"><li style="list-style-type:square">2 day : $400</li></ul><ul id="9a1da990-e350-4855-8e60-eda864c0c71e" class="bulleted-list"><li style="list-style-type:square">3 day : $580</li></ul></li></ul><ul id="b980574a-3948-4c2c-bdb3-c874bc42e24a" class="bulleted-list"><li style="list-style-type:circle">마우스 필, FRC<ul id="c076f389-65d4-4185-ad26-150082c1e36b" class="bulleted-list"><li style="list-style-type:square">2 day : $400</li></ul><ul id="14c58781-231f-467d-b9a1-90652db563ba" class="bulleted-list"><li style="list-style-type:square">3 day : $580</li></ul></li></ul><ul id="3b8589aa-a323-4037-9d2a-661225fbded4" class="bulleted-list"><li style="list-style-type:circle">응급처치 과정<ul id="1c3aea3d-5191-4623-b298-386bc96d1743" class="bulleted-list"><li style="list-style-type:square">3~4 hours : $150</li></ul></li></ul></li></ul><ul id="7c374661-5e83-4e3c-9447-957264c1292e" class="bulleted-list"><li style="list-style-type:disc">강사양성 과정<ul id="2776713f-ad3c-4b73-8f9d-7df9ebb1cf1c" class="bulleted-list"><li style="list-style-type:circle">$1700</li></ul><ul id="38404ace-778b-4d9a-9b2b-7e179969f7a7" class="bulleted-list"><li style="list-style-type:circle">6~9 days</li></ul><ul id="db9fc882-1661-4411-9df5-07410f856d92" class="bulleted-list"><li style="list-style-type:circle">강사등록비용 및 키트비용 (AIDA 50유로, SSI $250)</li></ul><ul id="e761c529-7b0f-4afb-b869-eae5e79a0b76" class="bulleted-list"><li style="list-style-type:circle">두 단체 모두 할 경우 $600 추가</li></ul></li></ul><p id="9f1be7bf-728b-45b7-b5be-ec510a77fdec" class="">
+</p></div><p id="2d6d0135-e696-4648-ad7f-b1577fa27f08" class="">
+</p><p id="f6cadd27-0835-45d7-b45f-7f07bbfc7430" class="">
+</p><div id="92746536-ae35-46c1-93c7-6287953d45c4" class="collection-content"><h4 class="collection-title">준비</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>이름</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesStatus"><path d="M8.75488 1.02344C8.75488 0.613281 8.41309 0.264648 8.00293 0.264648C7.59277 0.264648 7.25098 0.613281 7.25098 1.02344V3.11523C7.25098 3.51855 7.59277 3.86719 8.00293 3.86719C8.41309 3.86719 8.75488 3.51855 8.75488 3.11523V1.02344ZM3.91504 5.0293C4.20215 5.31641 4.69434 5.32324 4.97461 5.03613C5.26855 4.74902 5.26855 4.25684 4.98145 3.96973L3.53906 2.52051C3.25195 2.2334 2.7666 2.21973 2.47949 2.50684C2.19238 2.79395 2.18555 3.28613 2.47266 3.57324L3.91504 5.0293ZM10.9629 4.01758C10.6826 4.30469 10.6826 4.79688 10.9697 5.08398C11.2568 5.37109 11.749 5.36426 12.0361 5.07715L13.4854 3.62793C13.7725 3.34082 13.7725 2.84863 13.4785 2.55469C13.1982 2.27441 12.7061 2.27441 12.4189 2.56152L10.9629 4.01758ZM15.0234 8.78906C15.4336 8.78906 15.7822 8.44727 15.7822 8.03711C15.7822 7.62695 15.4336 7.28516 15.0234 7.28516H12.9385C12.5283 7.28516 12.1797 7.62695 12.1797 8.03711C12.1797 8.44727 12.5283 8.78906 12.9385 8.78906H15.0234ZM0.975586 7.28516C0.56543 7.28516 0.223633 7.62695 0.223633 8.03711C0.223633 8.44727 0.56543 8.78906 0.975586 8.78906H3.07422C3.48438 8.78906 3.83301 8.44727 3.83301 8.03711C3.83301 7.62695 3.48438 7.28516 3.07422 7.28516H0.975586ZM12.0361 10.9902C11.749 10.71 11.2568 10.71 10.9629 10.9971C10.6826 11.2842 10.6826 11.7764 10.9697 12.0635L12.4258 13.5127C12.7129 13.7998 13.2051 13.793 13.4922 13.5059C13.7793 13.2256 13.7725 12.7266 13.4854 12.4395L12.0361 10.9902ZM2.52051 12.4395C2.22656 12.7266 2.22656 13.2188 2.50684 13.5059C2.79395 13.793 3.28613 13.7998 3.57324 13.5127L5.02246 12.0703C5.31641 11.7832 5.31641 11.291 5.03613 11.0039C4.74902 10.7168 4.25684 10.71 3.96973 10.9971L2.52051 12.4395ZM8.75488 12.9658C8.75488 12.5557 8.41309 12.207 8.00293 12.207C7.59277 12.207 7.25098 12.5557 7.25098 12.9658V15.0576C7.25098 15.4609 7.59277 15.8096 8.00293 15.8096C8.41309 15.8096 8.75488 15.4609 8.75488 15.0576V12.9658Z"></path></svg></span>상태</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>다중 선택</th></tr></thead><tbody><tr id="1c977c95-b913-4e5f-affc-bcc77ebea296"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/%E1%84%8B%E1%85%A7%E1%84%80%E1%85%AF%E1%86%AB%20%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5%201c977c95b9134e5faffcbcc77ebea296.html">여권 만들기</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-red">General</span></td></tr><tr id="9f170856-0ad3-473c-8905-11d75bae4cf6"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/%E1%84%8B%E1%85%A7%E1%84%80%E1%85%AF%E1%86%AB%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB%20%E1%84%8E%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%A7%E1%86%BC%209f1708560ad3473c890511d75bae4cf6.html">여권사진 촬영</a></td><td class="cell-WaLf"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>In progress</span></td><td class="cell-amDT"><span class="selected-value select-value-color-red">General</span></td></tr><tr id="220dae68-3a05-42cd-972d-4c7ed22d0d77"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/Insta360%20X3%20%E1%84%80%E1%85%AE%E1%84%86%E1%85%A2%20220dae683a0542cd972d4c7ed22d0d77.html">Insta360 X3 구매</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-red">General</span></td></tr><tr id="660e764c-9c37-47e7-a115-cce5d5e685c1"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/NAS%20%E1%84%89%E1%85%A6%E1%84%90%E1%85%B5%E1%86%BC%20660e764c9c3747e7a115cce5d5e685c1.html">NAS 세팅</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-red">General</span></td></tr><tr id="393345c3-5dd6-4b8d-9562-47f0fede8aae"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/%E1%84%8F%E1%85%A2%E1%84%85%E1%85%B5%E1%84%8B%E1%85%A5%20%E1%84%80%E1%85%AE%E1%84%86%E1%85%A2%20393345c35dd64b8d956247f0fede8aae.html">캐리어 구매</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-red">General</span></td></tr><tr id="e8c25369-81fc-41b1-9d6f-eee477098c94"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/Macbook%20%E1%84%80%E1%85%AE%E1%84%86%E1%85%A2%20%E1%84%86%E1%85%B5%E1%86%BE%20NAS%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%AF%20e8c2536981fc41b19d6feee477098c94.html">Macbook 구매 및 NAS 환경 연결</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-red">General</span></td></tr><tr id="45e9e79c-876e-491e-b78c-f1a08948bc54"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/%E1%84%8F%E1%85%A2%E1%84%82%E1%85%A9%E1%84%91%E1%85%B5%20%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%20%E1%84%89%E1%85%A5%E1%84%8E%E1%85%B5%E1%86%BC%2045e9e79c876e491eb78cf1a08948bc54.html">캐노피 가격 서칭</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-gray">Skydive Elsinore</span></td></tr><tr id="7e528485-7a98-4eef-b40f-e89319408107"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/LA%20%E2%86%94%20Elsinore%20%E1%84%8B%E1%85%B5%E1%84%83%E1%85%A9%E1%86%BC%E1%84%91%E1%85%A7%E1%86%AB%20%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5%207e5284857a984eefb40fe89319408107.html">LA ↔ Elsinore 이동편 알아보기</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-gray">Skydive Elsinore</span></td></tr><tr id="4cd0a906-b86e-48be-b2a8-fc730b3f4446"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/%E1%84%86%E1%85%A9%E1%86%A8%E1%84%91%E1%85%AD%E1%84%85%E1%85%A9%20%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%89%E1%85%A6%E1%86%AB%E1%84%89%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%92%E1%85%A1%E1%84%80%E1%85%A9,%20%E1%84%8E%E1%85%A6%E1%84%85%E1%85%B2%20%E1%84%80%E1%85%B5%E1%84%80%E1%85%A1%E1%86%AB%20%E1%84%8C%E1%85%A5%E1%86%BC%204cd0a906b86e48beb2a8fc730b3f4446.html">목표로 하는 라이센스를 정하고, 체류 기간 정하기</a></td><td class="cell-WaLf"><span class="status-value select-value-color-blue"><div class="status-dot status-dot-color-blue"></div>In progress</span></td><td class="cell-amDT"><span class="selected-value select-value-color-gray">Skydive Elsinore</span></td></tr><tr id="c3f567e3-5df1-4333-a15c-92c9352165b0"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%89%E1%85%A6%E1%86%AB%E1%84%89%E1%85%B3%20%E1%84%83%E1%85%A1%E1%86%AB%E1%84%80%E1%85%A8%20%E1%84%8E%E1%85%A1%E1%86%BD%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5%20c3f567e35df14333a15c92c9352165b0.html">라이센스 단계 찾아보기</a></td><td class="cell-WaLf"><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Done</span></td><td class="cell-amDT"><span class="selected-value select-value-color-gray">Skydive Elsinore</span></td></tr><tr id="5dea2a60-94bc-441d-ac51-35cf0bb8509b"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/%E1%84%87%E1%85%A1%E1%86%AF%E1%84%85%E1%85%B5%20%E1%84%89%E1%85%A5%E1%84%91%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2%20%E1%84%8E%E1%85%A1%E1%86%BD%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5%205dea2a6094bc441dac5135cf0bb8509b.html">발리 서핑 리뷰 찾아보기</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-orange">Bali Surfing</span></td></tr><tr id="e8b287eb-bcd5-4d5b-af38-ddff43b3bd49"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/Alchemy%20V3-30%20Plus%20%E1%84%80%E1%85%AE%E1%84%86%E1%85%A2%20e8b287ebbcd54d5baf38ddff43b3bd49.html">Alchemy V3-30 Plus 구매</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-blue">Freedive Panglao</span></td></tr><tr id="39b65cf7-809f-48b1-83b1-ba95d091a630"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/%E1%84%89%E1%85%A6%E1%84%80%E1%85%A8%E1%84%8B%E1%85%A7%E1%84%92%E1%85%A2%E1%86%BC%20%E1%84%80%E1%85%B5%E1%84%85%E1%85%A9%E1%86%A8%E1%84%83%E1%85%B3%E1%86%AF%20%E1%84%8E%E1%85%A1%E1%86%BD%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%86%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A5%20%E1%84%80%E1%85%AE%E1%84%80%E1%85%B3%E1%86%AF%E1%84%86%E1%85%A2%E1%86%B8%E1%84%8B%E1%85%A6%20%E1%84%91%E1%85%B5%E1%86%BC%20%E1%84%8D%E1%85%B5%E1%86%A8%2039b65cf7809f48b183b1ba95d091a630.html">세계여행 기록들 찾아보면서 구글맵에 핑 찍어놓기</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-pink">Europe</span><span class="selected-value select-value-color-purple">S.America</span></td></tr><tr id="93faa8f8-7205-4efe-ba06-a9fc215a6133"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5%20%E1%84%8C%E1%85%A9%E1%87%82%E1%84%8B%E1%85%B3%E1%86%AB%20%E1%84%83%E1%85%A1%E1%86%AF%20%E1%84%80%E1%85%A5%E1%86%B7%E1%84%89%E1%85%A2%E1%86%A8%2093faa8f872054efeba06a9fc215a6133.html">트레이닝 하기 좋은 달 검색</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-blue">Freedive Panglao</span></td></tr><tr id="4c19b71f-df35-4903-9ca8-a0d5e730d8c3"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/%E1%84%91%E1%85%B3%E1%84%85%E1%85%B5%E1%84%83%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B5%E1%86%BC%20%E1%84%86%E1%85%A9%E1%84%8B%E1%85%B5%E1%86%B7%20%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8%204c19b71fdf3549039ca8a0d5e730d8c3.html">프리다이빙 모임 가입</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-blue">Freedive Panglao</span></td></tr><tr id="04acae7a-9c88-4c17-bcd5-91b487bf4289"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/Diving%20computer%20%E1%84%87%E1%85%A2%E1%84%90%E1%85%A5%E1%84%85%E1%85%B5%20%E1%84%80%E1%85%AD%E1%84%8E%E1%85%A6%2004acae7a9c884c17bcd591b487bf4289.html">Diving computer 배터리 교체</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-blue">Freedive Panglao</span></td></tr><tr id="7a3dfbdc-9151-4cd2-8492-ebf93136c246"><td class="cell-title"><a href="%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20cd3ae28570bb408c9393c5999281b713/ddd%207a3dfbdc91514cd28492ebf93136c246.html">ddd</a></td><td class="cell-WaLf"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-amDT"><span class="selected-value select-value-color-orange">Bali Surfing</span></td></tr></tbody></table></div><p id="4315dc0f-dba3-4c6a-9841-cf5a2fcf7f03" class="">
+</p><h2 id="ef8d4bf0-ff9c-4d3e-ae42-638d23bf0069" class="">사전 준비</h2><ul id="dc8d22d8-adf9-4cb5-b7ef-5f430d7a7671" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Alchemy V3-30 Plus 구매</span></li></ul><ul id="1ed466d9-0df0-40cf-824f-b2cce1aed42d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Diving computer battery 교체</span></li></ul><ul id="022f0648-7b91-4578-9ae4-be829b229e37" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">수영 400m 10분</span></li></ul><ul id="93eed0de-b254-476b-ae68-ccc8e9c059aa" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">수심 20m 5회 왕복 (1분 휴식)</span></li></ul><ul id="ea2fcb7f-3266-4acb-8a03-6c959e993488" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Dynamic 75m</span></li></ul><ul id="87c5c6d0-f9f8-4091-a359-fc1ae9463a2b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">No fin 연습 (최소 25m)</span></li></ul><p id="f7bd277b-5244-4df9-b947-125dfee7ec11" class="">
+</p><h2 id="9dec30d7-2dec-488b-af1b-0676edcfe24f" class="">준비물 리스트</h2><p id="46bfa8aa-7356-4229-a703-420b5353cf24" class=""><mark class="highlight-gray">이제 충전기를 잊을 일은 없을 거예요. 준비물 리스트를 만들고 챙긴 물건은 체크 표시하세요.</mark></p><div id="e4509dbc-9acd-403c-9cfe-660cf119bb9b" class="column-list"><div id="fd9894b0-23d9-4b71-bac1-49c783d679f9" style="width:33.333333333333336%" class="column"><p id="9924c97d-fe59-4507-9a2f-c3adf75b97e9" class=""><strong>옷</strong>  👕</p><hr id="d0d08771-bff1-4ca9-a716-fb0d67d6beae"/><ul id="16cd4182-467b-4759-bf19-473e8fbf07ad" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">티셔츠</span></li></ul><ul id="87644568-e287-41ca-a71e-5a1638d6ffab" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">반바지 두장</span></li></ul><ul id="ade1f244-3d4b-4efd-8981-0652df5d0df3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">선글라스</span></li></ul><ul id="99815f61-302a-4d7d-895b-552e58d3fb4f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">3mm 슈트</span></li></ul><ul id="a2d8e97e-b689-4d3b-a28c-187a199e067d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">마스크, 핀, 벨트, 스노클</span></li></ul><ul id="a5e3728f-f2be-4151-ab9c-d773a586fb1d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">모자</span></li></ul><ul id="bf4408d3-08a7-4340-9014-802258632c02" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">수영복</span></li></ul><p id="3f111e46-a504-4406-9763-788826797ff4" class="">
+</p></div><div id="5e7fdf58-dd54-4f2e-be63-6cf1c5664ec7" style="width:33.333333333333336%" class="column"><p id="186f20e6-7ccc-4a41-9d04-dc9480941016" class=""><strong>세면도구</strong>  🪥</p><hr id="2779cb9e-0a98-491f-b402-994dc9a21c7d"/><ul id="66e69c3b-a5c4-452e-a93d-2d592b01a62a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">칫솔</span></li></ul><ul id="9f32acb7-bf59-4d83-a527-7cd53225dc57" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">데오도란트</span></li></ul><ul id="444828c2-bd53-40ec-9971-8660d16926a5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">선크림</span></li></ul><ul id="91e97414-ad76-4d54-871e-eb2a5f65415b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">서핑용 선크림</span></li></ul><ul id="ea20c1f4-b033-4f0d-b25d-f0c2328cd616" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">로션</span></li></ul><ul id="963eb183-6dda-4da6-9aa0-4d66e55799f9" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">핀페시아</span></li></ul><ul id="690ac40a-b128-45c8-85c6-9593f97b80b2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">타이레놀</span></li></ul><ul id="f4eadad0-61a2-4ad6-a9ee-63916207b212" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">물티슈</span></li></ul></div><div id="308efaeb-9ef4-418c-b5c3-f4114e52c525" style="width:33.33333333333333%" class="column"><p id="18195875-f005-4dd4-b60f-5de9762614a3" class=""><strong>전자 용품</strong>  💻</p><hr id="099f3630-aa49-4ee4-9f67-759eedde863f"/><ul id="199eed14-c406-4720-882a-d1bcb0ecd6dd" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Macbook</span></li></ul><ul id="47e97798-d3d2-495b-a35a-9cb62f63a953" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Gopro</span></li></ul><ul id="2e2301aa-a1c1-414d-9776-1ef5cbaf3087" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">DSLR</span></li></ul><ul id="8f9ede89-c88a-430f-814a-20a04baf3fb7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Insta360 X3</span></li></ul><ul id="f4184a2a-d979-45f1-b179-67d85d9470b3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Diving computer</span></li></ul><ul id="706b8250-64b1-4e49-9d22-c7bb458a89e8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Iphone</span></li></ul><ul id="d465da72-85b8-4355-9346-ed9def25c40c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">watch</span></li></ul></div></div><p id="8360ff62-bed1-421a-9a87-bb09f672f45b" class="">
+</p><h2 id="ddda9e2e-ce8a-4e6f-a2a2-e23bf5d67af2" class="">일정</h2><p id="324b7acd-4a3d-4128-897c-7c32016784c4" class="">트레이닝 세션 2달 이후에 강사과정 진행</p><div id="0b875b9b-b265-482c-9c71-6f28072d34cd" class="collection-content"><h4 class="collection-title">일정</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>액티비티</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>날짜</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>위치</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>메모</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>상태</th></tr></thead><tbody><tr id="c26642d7-eedd-4213-83ff-0452f44a0e81"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC%200b875b9bb265482c9c716f28072d34cd/%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%80%E1%85%AE%E1%86%A8%20c26642d7eedd421383ff0452f44a0e81.html"><span class="icon">🛫</span>출국</a></td><td class="cell-fykh"><time>@2024년 8월 8일</time></td><td class="cell-_PF`">인천공항</td><td class="cell-lBxw"></td><td class="cell-dO^K"><span class="selected-value select-value-color-green">준비</span></td></tr><tr id="d934d386-d2ee-4f32-83d4-c419575834c5"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC%200b875b9bb265482c9c716f28072d34cd/Training%20Session%20d934d386d2ee4f3283d4c419575834c5.html"><span class="icon">🐬</span>Training Session</a></td><td class="cell-fykh"><time>@2024년 8월 13일 → 2024년 10월 1일</time></td><td class="cell-_PF`">Panglao</td><td class="cell-lBxw">트레이닝에 집중</td><td class="cell-dO^K"><span class="selected-value select-value-color-green">준비</span></td></tr><tr id="57a31b82-4dea-4616-ab3e-3eee546e8818"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC%200b875b9bb265482c9c716f28072d34cd/Instructor%20course%2057a31b824dea4616ab3e3eee546e8818.html"><span class="icon">👨🏾‍🏫</span>Instructor course</a></td><td class="cell-fykh"><time>@2024년 10월 2일 → 2024년 10월 14일</time></td><td class="cell-_PF`">Panglao</td><td class="cell-lBxw">가능할까</td><td class="cell-dO^K"><span class="selected-value select-value-color-green">준비</span></td></tr><tr id="7a8c6297-0aad-47e3-9091-1bb2a6c8b29c"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC%200b875b9bb265482c9c716f28072d34cd/%E1%84%83%E1%85%A9%E1%84%8E%E1%85%A1%E1%86%A8%20%E1%84%92%E1%85%A1%E1%86%BC%E1%84%80%E1%85%A9%E1%86%BC%E1%84%91%E1%85%A7%E1%86%AB%207a8c62970aad47e390911bb2a6c8b29c.html"><span class="icon">🛬</span>도착 항공편</a></td><td class="cell-fykh"><time>@2024년 10월 15일 → 2024년 10월 16일</time></td><td class="cell-_PF`">Cebu</td><td class="cell-lBxw"></td><td class="cell-dO^K"><span class="selected-value select-value-color-green">준비</span></td></tr></tbody></table></div><p id="8c371638-2a58-4d0d-9802-aa24e08dc401" class="">
+</p><h2 id="45c8e66f-d1ec-40c0-84c6-4ff4a9f9b21a" class="">지도</h2><p id="09da1258-4ad8-4b36-a70b-11892e60b1b6" class="block-color-gray">간단한 클릭으로 여행지를 둘러보세요. <code><mark class="highlight-gray">Cmd/Ctrl + 스크롤</mark></code><mark class="highlight-gray">로 확대/축소할 수 있어요.</mark></p><hr id="ed28dbc5-406d-434d-989f-15820d762971"/><figure id="90f178d1-ffb5-4c27-9569-009d5727cca3"><div class="source"><a href="https://www.google.com/maps/place/Freedive+Panglao/@9.5497078,123.7525121,16.25z/data=!4m9!1m2!2m1!1sfreedive+panglao!3m5!1s0x33abacb227a457dd:0x1daa08b30da5c119!8m2!3d9.5482444!4d123.7571346!15sChBmcmVlZGl2ZSBwYW5nbGFvkgEQc2N1YmFfaW5zdHJ1Y3RvcuABAA">https://www.google.com/maps/place/Freedive+Panglao/@9.5497078,123.7525121,16.25z/data=!4m9!1m2!2m1!1sfreedive+panglao!3m5!1s0x33abacb227a457dd:0x1daa08b30da5c119!8m2!3d9.5482444!4d123.7571346!15sChBmcmVlZGl2ZSBwYW5nbGFvkgEQc2N1YmFfaW5zdHJ1Y3RvcuABAA</a></div></figure><p id="40ed8f6a-1290-4f41-90d3-89ba49c1d189" class="">
+</p><p id="c344f046-e5fa-4e00-9c00-9d21c59a0dd9" class="">
+</p><div id="b9be1262-a08c-493c-8a8c-b8983294aaa3" class="collection-content"><h4 class="collection-title">일기</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>작성 일시</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>태그</th></tr></thead><tbody><tr id="2af77903-064c-4987-ba08-bf8ab552182a"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%80%E1%85%B5%20b9be1262a08c493c8a8cb8983294aaa3/%E1%84%87%E1%85%A9%E1%84%90%E1%85%A9%E1%86%BC%E1%84%8B%E1%85%B4%20%E1%84%82%E1%85%A1%E1%86%AF%202af77903064c4987ba08bf8ab552182a.html"><span class="icon">🌻</span>보통의 날</a></td><td class="cell-}%j{"><time>@2023년 1월 8일 오전 12:50</time></td><td class="cell-!&#x27;(w"><span class="selected-value select-value-color-purple">데일리</span></td></tr><tr id="33d0fb02-d131-4ab7-8c2e-cfdc2093d34e"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%80%E1%85%B5%20b9be1262a08c493c8a8cb8983294aaa3/%E1%84%86%E1%85%B5%E1%86%AB%E1%84%89%E1%85%AE%E1%84%8B%E1%85%AA%20%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%B3%2033d0fb02d1314ab78c2ecfdc2093d34e.html"><span class="icon">🍸</span>민수와 데이트</a></td><td class="cell-}%j{"><time>@2023년 1월 8일 오전 12:50</time></td><td class="cell-!&#x27;(w"><span class="selected-value select-value-color-red">개인</span></td></tr><tr id="387bab94-91aa-47ce-af28-88b7a3807af3"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%80%E1%85%B5%20b9be1262a08c493c8a8cb8983294aaa3/%E1%84%8E%E1%85%B1%E1%84%8B%E1%85%A5%E1%86%B8%20%E1%84%8C%E1%85%AE%E1%86%AB%E1%84%87%E1%85%B5%20-%209%E1%84%8B%E1%85%AF%E1%86%AF%20387bab9491aa47ceaf2888b7a3807af3.html"><span class="icon">📋</span>취업 준비 - 9월</a></td><td class="cell-}%j{"><time>@2023년 1월 8일 오전 12:50</time></td><td class="cell-!&#x27;(w"><span class="selected-value select-value-color-blue">업무</span></td></tr><tr id="3d3c08ac-ccdb-42d3-84e9-decaac7094d2"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%80%E1%85%B5%20b9be1262a08c493c8a8cb8983294aaa3/%E1%84%92%E1%85%A1%E1%84%85%E1%85%AE%20%E1%84%83%E1%85%A9%E1%86%AF%E1%84%8B%E1%85%A1%E1%84%87%E1%85%A9%E1%84%80%E1%85%B5%203d3c08acccdb42d384e9decaac7094d2.html"><span class="icon">💭</span>하루 돌아보기</a></td><td class="cell-}%j{"><time>@2023년 1월 8일 오전 12:50</time></td><td class="cell-!&#x27;(w"><span class="selected-value select-value-color-purple">데일리</span></td></tr><tr id="8e91c2d3-56f0-44f2-aa8d-6944b555b487"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%80%E1%85%B5%20b9be1262a08c493c8a8cb8983294aaa3/%E1%84%80%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A1%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B5%20%E1%84%86%E1%85%A1%E1%86%AD%E1%84%8B%E1%85%B3%E1%86%AB%20%E1%84%82%E1%85%A1%E1%86%AF%208e91c2d356f044f2aa8d6944b555b487.html"><span class="icon">✨</span>감사할 일이 많은 날</a></td><td class="cell-}%j{"><time>@2023년 1월 8일 오전 12:50</time></td><td class="cell-!&#x27;(w"><span class="selected-value select-value-color-purple">데일리</span></td></tr><tr id="b95af599-ff15-4783-955a-73a58cf90695"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%80%E1%85%B5%20b9be1262a08c493c8a8cb8983294aaa3/%E1%84%92%E1%85%A1%E1%84%8B%E1%85%AA%E1%84%8B%E1%85%B5%20%E1%84%92%E1%85%B2%E1%84%80%E1%85%A1%20b95af599ff154783955a73a58cf90695.html"><span class="icon">🥥</span>하와이 휴가</a></td><td class="cell-}%j{"><time>@2023년 1월 8일 오전 12:50</time></td><td class="cell-!&#x27;(w"><span class="selected-value select-value-color-yellow">특별한 일</span></td></tr><tr id="fc68a59a-4e43-4e7a-b1cd-2d4d1c46f381"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%80%E1%85%B5%20b9be1262a08c493c8a8cb8983294aaa3/28%E1%84%87%E1%85%A5%E1%86%AB%E1%84%8D%E1%85%A2%20%E1%84%89%E1%85%A2%E1%86%BC%E1%84%8B%E1%85%B5%E1%86%AF%20fc68a59a4e434e7ab1cd2d4d1c46f381.html"><span class="icon">🎂</span>28번째 생일</a></td><td class="cell-}%j{"><time>@2023년 1월 8일 오전 12:50</time></td><td class="cell-!&#x27;(w"><span class="selected-value select-value-color-orange">계획</span></td></tr></tbody></table></div><p id="7f9f6893-40bf-4223-a850-078ef7ee166c" class="">
+</p><hr id="b53ed7c6-1979-4c70-b7eb-edbfc704b837"/><p id="1fc20c74-6c94-4b4c-8cde-cd0cbf5c2d0f" class="">
+</p><div id="dd124329-3539-4377-bab3-bdfe3b4341f1" class="collection-content"><h4 class="collection-title">1월 트레이닝 로그</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>일</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFormula"><path d="M5.04688 14.3604H11.2744C11.7324 14.3604 12.0537 14.0801 12.0537 13.6494C12.0537 13.2119 11.7324 12.9248 11.2744 12.9248H5.81934V12.8564L9.30566 8.82324C9.54492 8.57031 9.6748 8.29688 9.6748 8.0166C9.6748 7.73633 9.54492 7.45605 9.29883 7.20996L5.81934 3.2793V3.21094H11.2812C11.7393 3.21094 12.0537 2.92383 12.0537 2.48633C12.0537 2.05566 11.7393 1.77539 11.2812 1.77539H5.05371C4.34277 1.77539 3.95312 2.26758 3.95312 2.81445C3.95312 3.12207 4.07617 3.44336 4.33594 3.69629L8.15039 7.96875V8.05078L4.3291 12.4395C4.06934 12.6924 3.94629 13.0137 3.94629 13.3213C3.94629 13.8682 4.33594 14.3604 5.04688 14.3604Z"></path></svg></span>CWT</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFormula"><path d="M5.04688 14.3604H11.2744C11.7324 14.3604 12.0537 14.0801 12.0537 13.6494C12.0537 13.2119 11.7324 12.9248 11.2744 12.9248H5.81934V12.8564L9.30566 8.82324C9.54492 8.57031 9.6748 8.29688 9.6748 8.0166C9.6748 7.73633 9.54492 7.45605 9.29883 7.20996L5.81934 3.2793V3.21094H11.2812C11.7393 3.21094 12.0537 2.92383 12.0537 2.48633C12.0537 2.05566 11.7393 1.77539 11.2812 1.77539H5.05371C4.34277 1.77539 3.95312 2.26758 3.95312 2.81445C3.95312 3.12207 4.07617 3.44336 4.33594 3.69629L8.15039 7.96875V8.05078L4.3291 12.4395C4.06934 12.6924 3.94629 13.0137 3.94629 13.3213C3.94629 13.8682 4.33594 14.3604 5.04688 14.3604Z"></path></svg></span>DNF</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFormula"><path d="M5.04688 14.3604H11.2744C11.7324 14.3604 12.0537 14.0801 12.0537 13.6494C12.0537 13.2119 11.7324 12.9248 11.2744 12.9248H5.81934V12.8564L9.30566 8.82324C9.54492 8.57031 9.6748 8.29688 9.6748 8.0166C9.6748 7.73633 9.54492 7.45605 9.29883 7.20996L5.81934 3.2793V3.21094H11.2812C11.7393 3.21094 12.0537 2.92383 12.0537 2.48633C12.0537 2.05566 11.7393 1.77539 11.2812 1.77539H5.05371C4.34277 1.77539 3.95312 2.26758 3.95312 2.81445C3.95312 3.12207 4.07617 3.44336 4.33594 3.69629L8.15039 7.96875V8.05078L4.3291 12.4395C4.06934 12.6924 3.94629 13.0137 3.94629 13.3213C3.94629 13.8682 4.33594 14.3604 5.04688 14.3604Z"></path></svg></span>DYN</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFormula"><path d="M5.04688 14.3604H11.2744C11.7324 14.3604 12.0537 14.0801 12.0537 13.6494C12.0537 13.2119 11.7324 12.9248 11.2744 12.9248H5.81934V12.8564L9.30566 8.82324C9.54492 8.57031 9.6748 8.29688 9.6748 8.0166C9.6748 7.73633 9.54492 7.45605 9.29883 7.20996L5.81934 3.2793V3.21094H11.2812C11.7393 3.21094 12.0537 2.92383 12.0537 2.48633C12.0537 2.05566 11.7393 1.77539 11.2812 1.77539H5.05371C4.34277 1.77539 3.95312 2.26758 3.95312 2.81445C3.95312 3.12207 4.07617 3.44336 4.33594 3.69629L8.15039 7.96875V8.05078L4.3291 12.4395C4.06934 12.6924 3.94629 13.0137 3.94629 13.3213C3.94629 13.8682 4.33594 14.3604 5.04688 14.3604Z"></path></svg></span>STA</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>✋🏾 FIM</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>😴 STA</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>🦶🏽DNF</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>🧜🏾‍♂️ CWT</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>🧜🏾‍♂️ DYN</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>🧜🏾‍♂️✋🏾 CNF</th></tr></thead><tbody><tr id="bda66e0b-2fc0-411c-a8b6-c59a0b11a76e"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/1%E1%84%8B%E1%85%B5%E1%86%AF%20bda66e0b2fc0411ca8b6c59a0b11a76e.html">1일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 25m</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 60m</td><td class="cell-Ge{t">😴 STA : 220m</td><td class="cell-I]K?"></td><td class="cell-8R*c">220</td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^.">25</td><td class="cell-jFo]">60</td><td class="cell-`X`G"></td></tr><tr id="c347150a-eaa3-4a1f-9646-5132b2f9f9d0"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/2%E1%84%8B%E1%85%B5%E1%86%AF%20c347150aeaa34a1f96465132b2f9f9d0.html">2일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="518df9bf-061d-46cf-9067-1e7d38884c6d"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/3%E1%84%8B%E1%85%B5%E1%86%AF%20518df9bf061d46cf90671e7d38884c6d.html">3일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="6e991691-5307-45b0-849f-78b96a391e67"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/4%E1%84%8B%E1%85%B5%E1%86%AF%206e991691530745b0849f78b96a391e67.html">4일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="ed976229-9e7c-4570-9051-16a921997d76"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/5%E1%84%8B%E1%85%B5%E1%86%AF%20ed9762299e7c4570905116a921997d76.html">5일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="2452b5e7-98a4-41c5-a8d5-d697780c8a23"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/6%E1%84%8B%E1%85%B5%E1%86%AF%202452b5e798a441c5a8d5d697780c8a23.html">6일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="8ba5f7ae-a2d5-47d9-97b9-2da16a0af998"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/7%E1%84%8B%E1%85%B5%E1%86%AF%208ba5f7aea2d547d997b92da16a0af998.html">7일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="9a42f27e-ca6b-4261-aad5-946b12ed8795"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/8%E1%84%8B%E1%85%B5%E1%86%AF%209a42f27eca6b4261aad5946b12ed8795.html">8일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="60d29fc8-4db3-44b9-aa04-dd8fb8c0740e"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/9%E1%84%8B%E1%85%B5%E1%86%AF%2060d29fc84db344b9aa04dd8fb8c0740e.html">9일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="1d27b60d-b15f-4b89-8201-ac1f3cd5b145"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/10%E1%84%8B%E1%85%B5%E1%86%AF%201d27b60db15f4b898201ac1f3cd5b145.html">10일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="f9dc711d-825f-4ad2-a0f0-a2101714c1a1"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/11%E1%84%8B%E1%85%B5%E1%86%AF%20f9dc711d825f4ad2a0f0a2101714c1a1.html">11일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="a17cd4c6-c96b-42ee-9333-8f5affb7e4fb"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/12%E1%84%8B%E1%85%B5%E1%86%AF%20a17cd4c6c96b42ee93338f5affb7e4fb.html">12일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="7deb972a-2a62-431c-b5d4-4d70e2ac8dc6"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/13%E1%84%8B%E1%85%B5%E1%86%AF%207deb972a2a62431cb5d44d70e2ac8dc6.html">13일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="d2c465b5-d0f7-4d24-a8c2-faca7c0cf774"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/14%E1%84%8B%E1%85%B5%E1%86%AF%20d2c465b5d0f74d24a8c2faca7c0cf774.html">14일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="e7528e2b-7762-40a5-9f55-4455ea4af03f"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/15%E1%84%8B%E1%85%B5%E1%86%AF%20e7528e2b776240a59f554455ea4af03f.html">15일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="28f142bb-5ce7-4e25-a5bb-10c65f9a6be4"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/16%E1%84%8B%E1%85%B5%E1%86%AF%2028f142bb5ce74e25a5bb10c65f9a6be4.html">16일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="2a05b47d-63f6-444a-8963-b48ad15ba9de"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/17%E1%84%8B%E1%85%B5%E1%86%AF%202a05b47d63f6444a8963b48ad15ba9de.html">17일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="fd20c379-25f7-40aa-88a2-e2395bde5f2d"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/18%E1%84%8B%E1%85%B5%E1%86%AF%20fd20c37925f740aa88a2e2395bde5f2d.html">18일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="023ccc83-d379-4a13-a12d-dff0e0dc5af9"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/19%E1%84%8B%E1%85%B5%E1%86%AF%20023ccc83d3794a13a12ddff0e0dc5af9.html">19일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="0cf9c994-71b1-4205-8e23-480711bb9fd4"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/20%E1%84%8B%E1%85%B5%E1%86%AF%200cf9c99471b142058e23480711bb9fd4.html">20일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="f704c9f8-f341-4185-b8d0-b7a09f8029a9"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/21%E1%84%8B%E1%85%B5%E1%86%AF%20f704c9f8f3414185b8d0b7a09f8029a9.html">21일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="b80713c6-e0f1-4da1-9aaa-89536ee00a22"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/22%E1%84%8B%E1%85%B5%E1%86%AF%20b80713c6e0f14da19aaa89536ee00a22.html">22일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="1d9170dd-afeb-437e-aa5f-20da55e456ea"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/23%E1%84%8B%E1%85%B5%E1%86%AF%201d9170ddafeb437eaa5f20da55e456ea.html">23일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="34a3f5da-5ce2-4ac5-a98f-d94e77d57f93"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/24%E1%84%8B%E1%85%B5%E1%86%AF%2034a3f5da5ce24ac5a98fd94e77d57f93.html">24일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="d6471b76-c7ef-4157-8440-75cf38c763d3"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/25%E1%84%8B%E1%85%B5%E1%86%AF%20d6471b76c7ef4157844075cf38c763d3.html">25일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="a761f215-3d2c-44d7-bcc9-4867975b5348"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/26%E1%84%8B%E1%85%B5%E1%86%AF%20a761f2153d2c44d7bcc94867975b5348.html">26일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="8545f680-6786-4398-b021-ebb2bfac3bcd"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/27%E1%84%8B%E1%85%B5%E1%86%AF%208545f68067864398b021ebb2bfac3bcd.html">27일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="14c9001b-e727-41e2-a575-17b0e56550b4"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/28%E1%84%8B%E1%85%B5%E1%86%AF%2014c9001be72741e2a57517b0e56550b4.html">28일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="c3e7ccbd-6b1f-42c7-ae1b-2eb287b332da"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/29%E1%84%8B%E1%85%B5%E1%86%AF%20c3e7ccbd6b1f42c7ae1b2eb287b332da.html">29일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr><tr id="125e5191-f3cc-416a-b4e2-e86d8cd8ad87"><td class="cell-title"><a href="EPL%208ecf72a035f541e78542cc43f7d201fb/1%E1%84%8B%E1%85%AF%E1%86%AF%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%20dd12432935394377bab3bdfe3b4341f1/30%E1%84%8B%E1%85%B5%E1%86%AF%20125e5191f3cc416ab4e2e86d8cd8ad87.html">30일</a></td><td class="cell-lLv}">🧜🏾‍♂️ CWT : 😅</td><td class="cell-ZPWm">🦶🏽DNF : 😅</td><td class="cell-\Ots">🧜🏾‍♂️ DYN : 😅</td><td class="cell-Ge{t">😴 STA : 😅</td><td class="cell-I]K?"></td><td class="cell-8R*c"></td><td class="cell-Gb&gt;3"></td><td class="cell-N&quot;^."></td><td class="cell-jFo]"></td><td class="cell-`X`G"></td></tr></tbody></table></div><p id="355ff8a9-f399-4b15-830c-04b8f5d34207" class="">
+</p><h2 id="5ba6117d-8807-4f70-b5a5-e5457c6eca47" class="">사진</h2><p id="0c28eb43-74a9-4fa2-afdd-e335711ec523" class=""><mark class="highlight-gray">여행 중 찍은 사진들을 여기에 모아 보세요.</mark></p><div id="691fd96d-aea9-4e68-8686-6b6fced8d886" class="column-list"><div id="f43736f9-8873-405c-b80d-4dd6fb402ca6" style="width:33.333333333333336%" class="column"><figure id="1a8f28b4-ac97-4b84-b3c6-9b0764c204cd" class="image"><a href="Bali%20Surfing%20af99c59f14c047238b1f624a6c6ccde8/aussieactive-1brtlzDq-o8-unsplash.jpg"><img src="Bali%20Surfing%20af99c59f14c047238b1f624a6c6ccde8/aussieactive-1brtlzDq-o8-unsplash.jpg"/></a></figure><figure id="f17199c3-f5f1-4e52-81a2-80ad826cac23" class="image"><a href="Bali%20Surfing%20af99c59f14c047238b1f624a6c6ccde8/fabien-bazanegue-fEdPmPFLhLw-unsplash.jpg"><img src="Bali%20Surfing%20af99c59f14c047238b1f624a6c6ccde8/fabien-bazanegue-fEdPmPFLhLw-unsplash.jpg"/></a></figure></div><div id="89bbdcd8-6038-49c8-b53b-c0d8e021cfa8" style="width:33.333333333333336%" class="column"><figure id="b2df195c-e6a8-4936-9249-a8a9e6a9e903" class="image"><a href="https://images.unsplash.com/photo-1603034433055-1c046631d4e8?ixlib=rb-1.2.1&amp;q=80&amp;cs=tinysrgb&amp;fm=jpg&amp;crop=entropy"><img src="https://images.unsplash.com/photo-1603034433055-1c046631d4e8?ixlib=rb-1.2.1&amp;q=80&amp;cs=tinysrgb&amp;fm=jpg&amp;crop=entropy"/></a></figure><figure id="4ff9d586-4356-4d2a-ac37-53386cbb28ba" class="image"><a href="Bali%20Surfing%20af99c59f14c047238b1f624a6c6ccde8/david-cain-L8V5XU7-MR4-unsplash.jpg"><img src="Bali%20Surfing%20af99c59f14c047238b1f624a6c6ccde8/david-cain-L8V5XU7-MR4-unsplash.jpg"/></a></figure></div><div id="6628a730-396b-41e0-a4c6-66633f05481e" style="width:33.33333333333333%" class="column"><figure id="3cceda97-ab7f-4447-ab5e-d777962b82ce" class="image"><a href="Skydive%20Elsinore%2080679fddeab9403da9d6d0b1fac7d7cb/9D878E07-F660-4BB4-96C7-F521E8C66CDA.png"><img style="width:320px" src="Skydive%20Elsinore%2080679fddeab9403da9d6d0b1fac7d7cb/9D878E07-F660-4BB4-96C7-F521E8C66CDA.png"/></a></figure><p id="882b7a04-8268-4e2a-b741-b31544055e60" class="">
+</p><figure id="b27d11a2-1b8a-4d0e-82e7-2d2e4198d1fe" class="image"><a href="Bali%20Surfing%20af99c59f14c047238b1f624a6c6ccde8/hyosun-rosy-ko-dFubWB-pnik-unsplash.jpg"><img src="Bali%20Surfing%20af99c59f14c047238b1f624a6c6ccde8/hyosun-rosy-ko-dFubWB-pnik-unsplash.jpg"/></a></figure></div></div></div></article></body></html>
